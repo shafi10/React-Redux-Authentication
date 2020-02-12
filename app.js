@@ -1,8 +1,10 @@
+//require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose');
+const config = require('config')
 
 const app = express();
-mongoose.connect('mongodb://shafi:shafi100@ds045627.mlab.com:45627/login-registration',{useNewUrlParser: true,useUnifiedTopology: true},()=>{
+mongoose.connect(`mongodb://${config.get('DB-username')}:${config.get('DB-password')}@ds045627.mlab.com:45627/login-registration`,{useNewUrlParser: true,useUnifiedTopology: true},()=>{
     console.log('database connected');
 })
 
